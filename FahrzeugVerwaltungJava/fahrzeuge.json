@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "aufbau": "SUV",
+    "naviSystem": true,
+    "marke": "BMW",
+    "modell": "X5",
+    "hubraum": 600,
+    "treibstoffart": "Benzin",
+    "kmStand": 67000,
+    "leistung": 600,
+    "erstZulassung": "12.12.2024",
+    "aussenfarbe": "Black",
+    "leergewicht": 2300,
+    "type": "Auto"
+  }
+]
