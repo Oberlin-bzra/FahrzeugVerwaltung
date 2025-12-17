@@ -24,6 +24,7 @@ public class Auto extends Fahrzeug {
         this.aufbau = aufbau;
     }
 
+
     @Override
     public String getDetails() {
         return super.getDetails() + " (Auto - " + aufbau + ")";

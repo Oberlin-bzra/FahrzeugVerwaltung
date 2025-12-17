@@ -44,7 +44,7 @@ public class FahrzeugDialog extends JDialog {
 
         int row = 0;
 
-        // Fahrzeugtyp
+
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Fahrzeugtyp:*"), gbc);
         gbc.gridx = 1;
@@ -53,7 +53,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(typCombo, gbc);
         row++;
 
-        // Marke
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Marke:*"), gbc);
         gbc.gridx = 1;
@@ -61,7 +60,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(markeField, gbc);
         row++;
 
-        // Modell
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Modell:*"), gbc);
         gbc.gridx = 1;
@@ -69,7 +67,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(modellField, gbc);
         row++;
 
-        // Hubraum
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Hubraum (ccm):*"), gbc);
         gbc.gridx = 1;
@@ -77,7 +74,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(hubraumField, gbc);
         row++;
 
-        // Treibstoffart
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Treibstoffart:*"), gbc);
         gbc.gridx = 1;
@@ -85,7 +81,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(treibstoffCombo, gbc);
         row++;
 
-        // KM-Stand
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("KM-Stand:*"), gbc);
         gbc.gridx = 1;
@@ -93,7 +88,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(kmStandField, gbc);
         row++;
 
-        // Leistung
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Leistung (PS):*"), gbc);
         gbc.gridx = 1;
@@ -101,7 +95,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(leistungField, gbc);
         row++;
 
-        // Erstzulassung
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Erstzulassung (TT.MM.JJJJ):*"), gbc);
         gbc.gridx = 1;
@@ -109,7 +102,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(erstZulassungField, gbc);
         row++;
 
-        // Aussenfarbe
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Aussenfarbe:*"), gbc);
         gbc.gridx = 1;
@@ -117,7 +109,6 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(farbeField, gbc);
         row++;
 
-        // Leergewicht
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Leergewicht (kg):*"), gbc);
         gbc.gridx = 1;
@@ -125,11 +116,9 @@ public class FahrzeugDialog extends JDialog {
         mainPanel.add(leergewichtField, gbc);
         row++;
 
-        // Spezifische Felder (Auto/Transporter)
         cardLayout = new CardLayout();
         spezifischPanel = new JPanel(cardLayout);
 
-        // Auto spezifisch
         JPanel autoPanel = new JPanel(new GridBagLayout());
         GridBagConstraints autoGbc = new GridBagConstraints();
         autoGbc.fill = GridBagConstraints.HORIZONTAL;
@@ -147,7 +136,6 @@ public class FahrzeugDialog extends JDialog {
         naviCheckbox = new JCheckBox();
         autoPanel.add(naviCheckbox, autoGbc);
 
-        // Transporter spezifisch
         JPanel transporterPanel = new JPanel(new GridBagLayout());
         GridBagConstraints transGbc = new GridBagConstraints();
         transGbc.fill = GridBagConstraints.HORIZONTAL;
@@ -167,7 +155,6 @@ public class FahrzeugDialog extends JDialog {
 
         add(new JScrollPane(mainPanel), BorderLayout.CENTER);
 
-        // Button Panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton speichernButton = new JButton("Speichern");
         speichernButton.addActionListener(e -> speichern());
@@ -209,21 +196,20 @@ public class FahrzeugDialog extends JDialog {
             typCombo.setSelectedItem("Auto");
             Auto auto = (Auto) fahrzeug;
             aufbauCombo.setSelectedItem(auto.getAufbau());
-            naviCheckbox.setSelected(false); // Standardwert, da nicht in Klasse
+            naviCheckbox.setSelected(false);
         } else if (fahrzeug instanceof Transporter) {
             typCombo.setSelectedItem("Transporter");
             Transporter trans = (Transporter) fahrzeug;
             zuladungField.setText(String.valueOf(trans.getMaxZuladung()));
         }
 
-        typCombo.setEnabled(false); // Typ kann nicht geändert werden
+        typCombo.setEnabled(false);
     }
 
     private void speichern() {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 
-            // Validierung
             if (markeField.getText().trim().isEmpty() ||
                     modellField.getText().trim().isEmpty()) {
                 JOptionPane.showMessageDialog(this,
@@ -255,7 +241,6 @@ public class FahrzeugDialog extends JDialog {
             String typ = (String) typCombo.getSelectedItem();
 
             if (fahrzeug == null) {
-                // Neues Fahrzeug erstellen
                 if ("Auto".equals(typ)) {
                     String aufbau = (String) aufbauCombo.getSelectedItem();
                     boolean navi = naviCheckbox.isSelected();
@@ -271,7 +256,6 @@ public class FahrzeugDialog extends JDialog {
                             farbe, leergewicht, zuladung);
                 }
             } else {
-                // Bestehendes Fahrzeug aktualisieren
                 fahrzeug.setMarke(marke);
                 fahrzeug.setModell(modell);
                 fahrzeug.setHubraum(hubraum);

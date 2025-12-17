@@ -22,6 +22,7 @@ public class Transporter extends Fahrzeug {
         this.maxZuladung = maxZuladung;
     }
 
+
     @Override
     public String getDetails() {
         return super.getDetails() + " (Transporter)";

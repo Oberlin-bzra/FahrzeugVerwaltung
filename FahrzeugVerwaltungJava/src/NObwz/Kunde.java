@@ -27,7 +27,6 @@ public class Kunde {
         this.geburtsdatum = geburtsdatum;
     }
 
-    // Getter
     public String getName() { return name; }
     public String getVorname() { return vorname; }
     public String getStrasseNummer() { return strasseNummer; }
@@ -38,7 +37,6 @@ public class Kunde {
     public String getEmail() { return email; }
     public Date getGeburtsdatum() { return geburtsdatum; }
 
-    // Setter
     public void setName(String name) { this.name = name; }
     public void setVorname(String vorname) { this.vorname = vorname; }
     public void setStrasseNummer(String strasseNummer) { this.strasseNummer = strasseNummer; }

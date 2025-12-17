@@ -14,10 +14,7 @@ public class Fahrzeugverwaltung {
         fahrzeuge.add(fahrzeug);
     }
 
-    public void fahrzeugBearbeiten(Fahrzeug fahrzeug) {
-        // Aktualisierung erfolgt direkt am Objekt
-        // Da Objekte per Referenz übergeben werden
-    }
+    public void fahrzeugBearbeiten(Fahrzeug fahrzeug) {}
 
     public List<Fahrzeug> fahrzeugSuchen(String marke, String modell) {
         List<Fahrzeug> ergebnisse = new ArrayList<>();

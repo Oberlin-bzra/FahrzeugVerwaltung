@@ -15,8 +15,7 @@ public class Kundenverwaltung {
     }
 
     public void kundeBearbeiten(Kunde kunde) {
-        // Aktualisierung erfolgt direkt am Objekt
-        // Da Objekte per Referenz übergeben werden
+
     }
 
     public List<Kunde> getAlleKunden() {

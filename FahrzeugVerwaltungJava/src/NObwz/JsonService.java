@@ -16,7 +16,6 @@ public class JsonService {
                 .create();
     }
 
-    // Fahrzeuge laden
     public List<Fahrzeug> ladeFahrzeuge() {
         File file = new File(FAHRZEUGE_FILE);
         if (!file.exists()) {
@@ -45,7 +44,6 @@ public class JsonService {
         }
     }
 
-    // Fahrzeuge speichern
     public void speichereFahrzeuge(List<Fahrzeug> fahrzeuge) {
         try (Writer writer = new FileWriter(FAHRZEUGE_FILE)) {
             JsonArray jsonArray = new JsonArray();
@@ -66,7 +64,6 @@ public class JsonService {
         }
     }
 
-    // Kunden laden
     public List<Kunde> ladeKunden() {
         File file = new File(KUNDEN_FILE);
         if (!file.exists()) {
@@ -82,7 +79,6 @@ public class JsonService {
         }
     }
 
-    // Kunden speichern
     public void speichereKunden(List<Kunde> kunden) {
         try (Writer writer = new FileWriter(KUNDEN_FILE)) {
             gson.toJson(kunden, writer);

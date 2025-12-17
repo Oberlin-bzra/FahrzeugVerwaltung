@@ -25,7 +25,6 @@ public class FahrzeugPanel extends JPanel {
     }
 
     private void initComponents() {
-        // Suchbereich
         JPanel suchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         suchPanel.add(new JLabel("Marke:"));
         suchMarkeField = new JTextField(15);
@@ -49,7 +48,6 @@ public class FahrzeugPanel extends JPanel {
 
         add(suchPanel, BorderLayout.NORTH);
 
-        // Tabelle
         String[] columnNames = {"Typ", "Marke", "Modell", "Hubraum", "Treibstoff",
                 "KM-Stand", "Leistung", "Erstzu.", "Farbe"};
         tableModel = new DefaultTableModel(columnNames, 0) {
@@ -63,7 +61,6 @@ public class FahrzeugPanel extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Button-Panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         JButton neuButton = new JButton("Neues Fahrzeug");

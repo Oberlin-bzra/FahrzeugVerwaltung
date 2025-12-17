@@ -27,7 +27,6 @@ public abstract class Fahrzeug {
         this.leergewicht = leergewicht;
     }
 
-    // Getter
     public String getMarke() { return marke; }
     public String getModell() { return modell; }
     public int getHubraum() { return hubraum; }
@@ -38,7 +37,6 @@ public abstract class Fahrzeug {
     public String getAussenfarbe() { return aussenfarbe; }
     public int getLeergewicht() { return leergewicht; }
 
-    // Setter
     public void setMarke(String marke) { this.marke = marke; }
     public void setModell(String modell) { this.modell = modell; }
     public void setHubraum(int hubraum) { this.hubraum = hubraum; }

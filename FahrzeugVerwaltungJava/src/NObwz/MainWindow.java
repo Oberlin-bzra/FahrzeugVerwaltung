@@ -14,7 +14,6 @@ public class MainWindow extends JFrame {
         fahrzeugverwaltung = new Fahrzeugverwaltung();
         kundenverwaltung = new Kundenverwaltung();
 
-        // Daten laden
         for (Fahrzeug f : jsonService.ladeFahrzeuge()) {
             fahrzeugverwaltung.fahrzeugErfassen(f);
         }
@@ -29,7 +28,6 @@ public class MainWindow extends JFrame {
 
         initComponents();
 
-        // Beim Schließen speichern
         addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {
@@ -41,11 +39,9 @@ public class MainWindow extends JFrame {
     private void initComponents() {
         tabbedPane = new JTabbedPane();
 
-        // Tab für Fahrzeugverwaltung
         FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(fahrzeugverwaltung, this);
         tabbedPane.addTab("Fahrzeuge", fahrzeugPanel);
 
-        // Tab für Kundenverwaltung
         KundenPanel kundenPanel = new KundenPanel(kundenverwaltung, this);
         tabbedPane.addTab("Kunden", kundenPanel);
 

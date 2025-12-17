@@ -23,12 +23,10 @@ public class KundenPanel extends JPanel {
     }
 
     private void initComponents() {
-        // Info-Panel
         JPanel infoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         infoPanel.add(new JLabel("Kundenverwaltung - Alle registrierten Kunden"));
         add(infoPanel, BorderLayout.NORTH);
 
-        // Tabelle
         String[] columnNames = {"Name", "Vorname", "Strasse", "PLZ", "Wohnort",
                 "Tel. Privat", "Tel. Mobil", "E-Mail", "Geburtsdatum"};
         tableModel = new DefaultTableModel(columnNames, 0) {
@@ -42,7 +40,6 @@ public class KundenPanel extends JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane, BorderLayout.CENTER);
 
-        // Button-Panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
         JButton neuButton = new JButton("Neuer Kunde");

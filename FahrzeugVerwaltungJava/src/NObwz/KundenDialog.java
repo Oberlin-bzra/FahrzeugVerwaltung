@@ -38,7 +38,6 @@ public class KundenDialog extends JDialog {
 
         int row = 0;
 
-        // Name
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Name:*"), gbc);
         gbc.gridx = 1;
@@ -46,7 +45,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(nameField, gbc);
         row++;
 
-        // Vorname
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Vorname:*"), gbc);
         gbc.gridx = 1;
@@ -54,7 +52,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(vornameField, gbc);
         row++;
 
-        // Strasse und Nummer
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Strasse und Nummer:*"), gbc);
         gbc.gridx = 1;
@@ -62,7 +59,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(strasseField, gbc);
         row++;
 
-        // PLZ
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("PLZ:*"), gbc);
         gbc.gridx = 1;
@@ -70,7 +66,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(plzField, gbc);
         row++;
 
-        // Wohnort
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Wohnort:*"), gbc);
         gbc.gridx = 1;
@@ -78,7 +73,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(wohnortField, gbc);
         row++;
 
-        // Telefon Privat
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Telefon Privat:"), gbc);
         gbc.gridx = 1;
@@ -86,7 +80,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(telPrivatField, gbc);
         row++;
 
-        // Telefon Mobil
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Telefon Mobil:"), gbc);
         gbc.gridx = 1;
@@ -94,7 +87,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(telMobileField, gbc);
         row++;
 
-        // E-Mail
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("E-Mail:"), gbc);
         gbc.gridx = 1;
@@ -102,7 +94,6 @@ public class KundenDialog extends JDialog {
         mainPanel.add(emailField, gbc);
         row++;
 
-        // Geburtsdatum
         gbc.gridx = 0; gbc.gridy = row;
         mainPanel.add(new JLabel("Geburtsdatum (TT.MM.JJJJ):*"), gbc);
         gbc.gridx = 1;
@@ -111,7 +102,6 @@ public class KundenDialog extends JDialog {
 
         add(new JScrollPane(mainPanel), BorderLayout.CENTER);
 
-        // Button Panel
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton speichernButton = new JButton("Speichern");
         speichernButton.addActionListener(e -> speichern());
@@ -147,7 +137,6 @@ public class KundenDialog extends JDialog {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 
-            // Validierung
             if (nameField.getText().trim().isEmpty() ||
                     vornameField.getText().trim().isEmpty() ||
                     strasseField.getText().trim().isEmpty() ||
@@ -180,11 +169,9 @@ public class KundenDialog extends JDialog {
             }
 
             if (kunde == null) {
-                // Neuen Kunden erstellen
                 kunde = new Kunde(name, vorname, strasse, plz, wohnort,
                         telPrivat, telMobile, email, geburtsdatum);
             } else {
-                // Bestehenden Kunden aktualisieren
                 kunde.setName(name);
                 kunde.setVorname(vorname);
                 kunde.setStrasseNummer(strasse);
