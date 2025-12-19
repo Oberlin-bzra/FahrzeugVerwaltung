@@ -127,7 +127,7 @@ public class FahrzeugDialog extends JDialog {
         autoGbc.gridx = 0; autoGbc.gridy = 0;
         autoPanel.add(new JLabel("Aufbau:*"), autoGbc);
         autoGbc.gridx = 1;
-        aufbauCombo = new JComboBox<>(new String[]{"Kleinwagen", "Limousine", "Kombi", "SUV", "Cabriolet"});
+        aufbauCombo = new JComboBox<>(new String[]{"Kleinwagen", "Limousine", "Kombi", "SUV", "Cabriolet", "Sportwagen"});
         autoPanel.add(aufbauCombo, autoGbc);
 
         autoGbc.gridx = 0; autoGbc.gridy = 1;
