@@ -22,7 +22,6 @@ class JsonServiceTest {
     void setUp() {
         jsonService = new JsonService();
 
-        // Backup erstellen falls Dateien existieren
         File fzgFile = new File(FAHRZEUGE_FILE);
         File kunFile = new File(KUNDEN_FILE);
 
@@ -36,7 +35,6 @@ class JsonServiceTest {
 
     @AfterEach
     void tearDown() {
-        // Original-Dateien wiederherstellen
         new File(FAHRZEUGE_FILE).delete();
         new File(KUNDEN_FILE).delete();
 
@@ -171,7 +169,6 @@ class JsonServiceTest {
     @Test
     @DisplayName("TC-PS-03: Leere Fahrzeug-Datei laden")
     void testLeereFahrzeugDateiLaden() {
-        // Stelle sicher, dass keine Datei existiert
         new File(FAHRZEUGE_FILE).delete();
 
         List<Fahrzeug> geladen = jsonService.ladeFahrzeuge();
@@ -193,7 +190,7 @@ class JsonServiceTest {
 
     @Test
     @DisplayName("Leere Listen speichern")
-    void testLeereListen Speichern() {
+    void testLeereListenSpeichern() {
         List<Fahrzeug> leereFahrzeuge = new ArrayList<>();
         List<Kunde> leereKunden = new ArrayList<>();
 
