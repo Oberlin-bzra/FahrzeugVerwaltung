@@ -135,7 +135,7 @@ public class FahrzeugPanel extends JPanel {
     }
 
     private void neuesFahrzeug() {
-        FahrzeugDialog dialog = new FahrzeugDialog(
+        NObwz.FahrzeugDialog dialog = new FahrzeugDialog(
                 (JFrame) SwingUtilities.getWindowAncestor(this), null);
         dialog.setVisible(true);
 

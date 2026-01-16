@@ -1,7 +1,6 @@
 package NObwz;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MainWindow extends JFrame {
     private Fahrzeugverwaltung fahrzeugverwaltung;
