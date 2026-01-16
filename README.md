@@ -1,6 +1,6 @@
 # Fahrzeugverwaltung - IdealCar4You
 
-Eine Desktop-Applikation zur effizienten Verwaltung von Fahrzeugen und Kundendaten für die Firma IdealCar4You.
+Eine Desktop-Applikation zur effizienten Verwaltung von Fahrzeugen und Kundendaten für die fiktive Firma IdealCar4You.
 
 ## 📋 Projektübersicht
 
