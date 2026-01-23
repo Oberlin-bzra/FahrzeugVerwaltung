@@ -1,0 +1,17 @@
+[
+  {
+    "username": "admin",
+    "password": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+    "role": "Fahrzeugpark Manager"
+  },
+  {
+    "username": "berater",
+    "password": "8f6d1056567efe43636ae67e41a8c2cd41f5bd424066883936e310036bac4db1",
+    "role": "Kundenberater"
+  },
+  {
+    "username": "noel",
+    "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+    "role": "Fahrzeugpark Manager"
+  }
+]

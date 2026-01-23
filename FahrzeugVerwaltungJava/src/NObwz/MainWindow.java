@@ -7,8 +7,10 @@ public class MainWindow extends JFrame {
     private Kundenverwaltung kundenverwaltung;
     private JsonService jsonService;
     private JTabbedPane tabbedPane;
+    private User currentUser;
 
-    public MainWindow() {
+    public MainWindow(User user) {
+        this.currentUser = user;
         jsonService = new JsonService();
         fahrzeugverwaltung = new Fahrzeugverwaltung();
         kundenverwaltung = new Kundenverwaltung();
@@ -20,7 +22,7 @@ public class MainWindow extends JFrame {
             kundenverwaltung.kundeErfassen(k);
         }
 
-        setTitle("IdealCar4You - Fahrzeugverwaltung");
+        setTitle("IdealCar4You - Fahrzeugverwaltung - " + user.getUsername() + " (" + user.getRole() + ")");
         setSize(1000, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -36,6 +38,20 @@ public class MainWindow extends JFrame {
     }
 
     private void initComponents() {
+        JMenuBar menuBar = new JMenuBar();
+        JMenu accountMenu = new JMenu("Account");
+
+        JMenuItem logoutItem = new JMenuItem("Abmelden");
+        logoutItem.addActionListener(e -> logout());
+        accountMenu.add(logoutItem);
+
+        JMenuItem infoItem = new JMenuItem("Benutzerinfo");
+        infoItem.addActionListener(e -> showUserInfo());
+        accountMenu.add(infoItem);
+
+        menuBar.add(accountMenu);
+        setJMenuBar(menuBar);
+
         tabbedPane = new JTabbedPane();
 
         FahrzeugPanel fahrzeugPanel = new FahrzeugPanel(fahrzeugverwaltung, this);
@@ -45,6 +61,28 @@ public class MainWindow extends JFrame {
         tabbedPane.addTab("Kunden", kundenPanel);
 
         add(tabbedPane);
+    }
+
+    private void logout() {
+        int confirm = JOptionPane.showConfirmDialog(this,
+                "Möchten Sie sich wirklich abmelden?",
+                "Abmelden", JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            speichereDaten();
+            dispose();
+            SwingUtilities.invokeLater(() -> {
+                LoginView loginView = new LoginView();
+                loginView.setVisible(true);
+            });
+        }
+    }
+
+    private void showUserInfo() {
+        JOptionPane.showMessageDialog(this,
+                "Benutzer: " + currentUser.getUsername() + "\nRolle: " + currentUser.getRole(),
+                "Benutzerinformationen",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void speichereDaten() {
@@ -59,8 +97,8 @@ public class MainWindow extends JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            MainWindow window = new MainWindow();
-            window.setVisible(true);
+            LoginView loginView = new LoginView();
+            loginView.setVisible(true);
         });
     }
 }
